@@ -1,163 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thala for a reason</title>
+    <!-- Add Bootstrap CDN link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <style>
-        body {
-            font-family: 'Arial Black', sans-serif;
-            text-align: center;
-            margin: 50px;
-            background-color: black;
-        }
+      body {
+        font-family: "Arial Black", sans-serif;
+        text-align: center;
+        margin: 50px;
+        padding: 10px;
+        background-color: black;
+        cursor: url("MS_Dhoni.png"), auto;
+      }
 
-        label {
-            font-size: 50px;
-            color: white;
-        }
+      label {
+        font-size: 2rem;
+        color: white;
+      }
 
-        input {
-            padding: 10px;
-            margin: 10px;
-            font-size: 50px;
+      @keyframes flash1 {
+        30% {
+          color: #f15c19;
         }
-
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            font-size: 50px;
-            border-radius: 10px;
-            color: white;
-            border: none;
-            cursor: pointer;
+        50% {
+          color: #f9cd05;
         }
-
-        button:hover {
-            background-color: #F9CD05;
-            backdrop-filter: blur(50px);
-            box-shadow: 0 0 20px #F9CD05; /* Adjust the color and intensity for hover */
+        80% {
+          color: #f9cd05;
         }
-
-        #red:hover {
-            background-color: red;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px #f90505;
-
+        100% {
+          color: #00adef;
         }
+      }
 
-        video {
-            display: none;
-            margin-top: 20px;
-            max-width: 50%;
-            float: left;
-            border-radius: 10px;
-            box-shadow: 0 0 50px #F9CD05;
-        }
+      .thala {
+        animation: flash1 1s infinite;
+      }
 
-        #thalaText {
-            font-size: 100px;
-            margin-top: 20px;
-            padding-left: 20cm;
-            display: none;
-            float: center;
-            text-align: justify;
-        }
+      input {
+        padding: 10px;
+        margin: 10px;
+        font-size: 2rem;
+      }
 
-        #formattedName {
-            font-size: 100px;
-            margin-top: 20px;
-            padding-left: 20cm;
-            text-align: justify;
-            display: none;
-            float: center;
-            color: white;
-            animation: slideLeft 1s alternate infinite,
-                       slideRight 1s alternate infinite,
-                       slideTop 1s alternate infinite,
-                       slideBottom 1s alternate infinite,
-                       flash 3s infinite; /* Added motion effects */
-        }
+      button {
+        padding: 10px;
+        margin: 10px;
+        background-color: #31cc36;
+        font-size: 2rem;
+        border-radius: 10px;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
 
-        @keyframes slideLeft {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50px); }
-        }
+      button:hover {
+        background-color: #ffd000;
+        backdrop-filter: blur(50px);
+        box-shadow: 0 0 50px #f9cd05; /* Adjust the color and intensity for hover */
+        cursor: url("MS_Dhoni.png"), auto;
+      }
 
-        @keyframes slideRight {
-            from { transform: translateX(0); }
-            to { transform: translateX(50px); }
-        }
+      #yellow:hover {
+        color: #ffd000;
+      }
 
-        @keyframes slideTop {
-            from { transform: translateY(0); }
-            to { transform: translateY(-30px); }
-        }
+      #red:hover {
+        background-color: rgb(255, 0, 0);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 50px rgb(255, 0, 0);
+      }
 
-        @keyframes slideBottom {
-            from { transform: translateY(0); }
-            to { transform: translateY(30px); }
-        }
+      video {
+        display: none;
+        margin-top: 50px;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 50px #f9cd05;
+      }
 
-        @keyframes flash {
-            0% { color: red; }
-            10% { color: orange; }
-            20% { color: yellow; }
-            30% { color: green; }
-            40% { color: blue; }
-            50% { color: indigo; }
-            60% { color: violet; }
-            70% { color: red; }
-            80% { color: orange; }
-            90% { color: rgb(255, 192, 245); }
-            100% { color: green; }
-        }
+      #thalaText {
+        font-size: 2rem;
+        margin-top: 40px;
+        text-align: center;
+        display: none;
+      }
 
-        .flashing {
-            animation: flash 3s infinite;
+      #formattedName {
+        font-size: 2rem;
+        margin-top: 30px;
+        text-align: center;
+        color: white;
+        animation: slideLeft 1s alternate infinite,
+          slideRight 1s alternate infinite, slideTop 1s alternate infinite,
+          slideBottom 1s alternate infinite, flash 3s infinite; /* Added motion effects */
+      }
+
+      @keyframes slideLeft {
+        from {
+          transform: translateX(0);
         }
+        to {
+          transform: translateX(-50px);
+        }
+      }
+
+      @keyframes slideRight {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(50px);
+        }
+      }
+
+      @keyframes slideTop {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-30px);
+        }
+      }
+
+      @keyframes slideBottom {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(30px);
+        }
+      }
+
+      @keyframes flash {
+        0% {
+          color: red;
+        }
+        10% {
+          color: orange;
+        }
+        20% {
+          color: yellow;
+        }
+        30% {
+          color: green;
+        }
+        40% {
+          color: blue;
+        }
+        50% {
+          color: indigo;
+        }
+        60% {
+          color: violet;
+        }
+        70% {
+          color: red;
+        }
+        80% {
+          color: orange;
+        }
+        90% {
+          color: rgb(255, 192, 245);
+        }
+        100% {
+          color: green;
+        }
+      }
+
+      .flashing {
+        animation: flash 3s infinite;
+      }
     </style>
-</head>
-<body>
-    <label for="name" id="label">Enter your name:</label>
-    <input type="text" name="name" id="name"> 
-    <button onclick="checkName()">Check</button>
-    <button onclick="location.reload()" id="red">Reset</button>
-    
-    <video id="myVideo" controls>
-        <source src="Thala For a Reason.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+  </head>
+  <body class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="name" id="label" class="thala">Enter your name:</label>
+        <input type="text" name="name" id="name" class="form-control" />
+        <button onclick="checkName()" id="yellow" class="btn btn-success">
+          Check
+        </button>
+        <button onclick="location.reload()" id="red" class="btn btn-danger">
+          Reset
+        </button>
+      </div>
+      <div class="col-md-6">
+        <video id="myVideo" controls>
+          <source src="Thala For a Reason.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div id="thalaText" class="flashing">Thala for a Reason</div>
+        <div id="formattedName"></div>
+      </div>
+    </div>
 
-    <div id="thalaText" class="flashing">Thala for a Reason</div>
-    <div id="formattedName"></div>
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        function checkName() {
-            var nameInput = document.getElementById("name");
-            var video = document.getElementById("myVideo");
-            var thalaText = document.getElementById("thalaText");
-            var formattedName = document.getElementById("formattedName");
+      function checkName() {
+        var nameInput = document.getElementById("name");
+        var video = document.getElementById("myVideo");
+        var thalaText = document.getElementById("thalaText");
+        var formattedName = document.getElementById("formattedName");
 
-            if (nameInput.value.length === 7) {
-                video.style.display = "block";
-                video.play();
-                thalaText.style.display = "block";
-                formattedName.style.display = "block";
+        if (nameInput.value.length === 7) {
+          video.style.display = "block";
+          video.play();
+          thalaText.style.display = "block";
+          formattedName.style.display = "block";
 
-                // Format and display the user input
-                formattedName.innerText = formatName(nameInput.value);
-            } else {
-                alert("Not Thala for a Reason with exactly 7 letters.");
-                thalaText.style.display = "none";
-                formattedName.style.display = "none";
-            }
+          // Format and display the user input
+          formattedName.innerText = formatName(nameInput.value);
+        } else {
+          alert("Not Thala for a Reason with exactly 7 letters.");
+          thalaText.style.display = "none";
+          formattedName.style.display = "none";
         }
+      }
 
-        function formatName(name) {
-            // Format the name with each letter separated by a "+"
-            return name.split('').join('+');
-        }
+      function formatName(name) {
+        // Format the name with each letter separated by a "+"
+        return name.split("").join("+");
+      }
     </script>
-</body>
+  </body>
 </html>
