@@ -16,7 +16,6 @@
         margin: 50px;
         padding: 10px;
         background-color: black;
-        cursor: url("MS_Dhoni.png"), auto;
       }
 
       label {
@@ -64,7 +63,6 @@
         background-color: #ffd000;
         backdrop-filter: blur(50px);
         box-shadow: 0 0 50px #f9cd05; /* Adjust the color and intensity for hover */
-        cursor: url("MS_Dhoni.png"), auto;
       }
 
       #yellow:hover {
@@ -177,6 +175,18 @@
       .flashing {
         animation: flash 3s infinite;
       }
+
+      /* cursor */
+      #follower-container {
+            position: absolute;
+            pointer-events: none; /* Allows the follower to ignore mouse events */
+        }
+
+        #follower {
+            width: 250px; /* Adjust the width of your image */
+            height: auto;
+            position: absolute;
+        }
     </style>
   </head>
   <body class="container">
@@ -199,6 +209,10 @@
         <div id="thalaText" class="flashing">Thala for a Reason</div>
         <div id="formattedName"></div>
       </div>
+    </div>
+
+    <div id="follower-container">
+        <img id="follower" src="MSD1.png" alt="Follower Image">
     </div>
 
     <!-- Add Bootstrap JS and Popper.js CDN links -->
@@ -232,6 +246,19 @@
         // Format the name with each letter separated by a "+"
         return name.split("").join("+");
       }
+
+//cursor
+      document.addEventListener('DOMContentLoaded', () => {
+          const followerContainer = document.getElementById('follower-container');
+
+          document.addEventListener('mousemove', (e) => {
+            const x = e.clientX - followerContainer.getBoundingClientRect().left - follower.width / 2;
+            const y = e.clientY - followerContainer.getBoundingClientRect().top - follower.height / 2;
+
+            follower.style.left = `${x}px`;
+            follower.style.top = `${y}px`;
+          });
+        });
     </script>
   </body>
 </html>
